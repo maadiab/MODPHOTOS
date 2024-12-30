@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOD PHOTOS</title>
+<script src="https://unpkg.com/htmx.org"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  .hover-link {
+    color: #6c757d;
+    transition: color 0.3s;
+  
+  }
+ .hover-link:visited {
+    color: #3333 !important; /* Same as default color */
+  }
+  .hover-link:hover {
+    background-color: #3333;
+    color:#fff;
+  }
+  .hover-link:focus {
+    color:#fff;
+  }
+</style>
+
+</head>
+
+
+
+<body style="font-family: Cairo;" class="h-100 bg-light">
+    
+    
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow py-2" >
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">إدارة مصوري وزارة الدفاع</a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="عرض/إخفاء لوحة التنقل">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="بحث" aria-label="بحث"> -->
+  <div class="navbar-nav">
+    <div class="nav-item text-nowrap">
+      <a class="nav-link px-3" href="#">تسجيل الخروج</a>
+    </div>
+  </div>
+</header>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="min-vh-100 col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse position-fixed">
+      <div class="position-sticky pt-3 sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item text-secondary">
+            <a class=" nav-link hover-link"  aria-current="page" href="javascript:void(0);">
+              <span data-feather="home" class="align-text-bottom"></span>
+              لوحة القيادة
+            </a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link hover-link" href="javascript:void(0);" hx-get="/reguser" hx-target="#dashboard">
+
+              <span data-feather="file" class="align-text-bottom"></span>
+              إضافة مستخدم للنظام
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class=" nav-link hover-link" href="javascript:void(0);" hx-get="/regphoto" hx-target="#dashboard">
+              <span data-feather="shopping-cart" class="align-text-bottom"></span>
+              إضافة مصور
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="hover-link nav-link" href="javascript:void(0);">
+              <span data-feather="users" class="align-text-bottom"></span>
+              إضافة مهمة تصوير
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="hover-link nav-link" href="javascript:void(0);">
+              <span data-feather="bar-chart-2" class="align-text-bottom"></span>
+              قائمة المصورين
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+    <main class="bg-light col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">لوحة القيادة</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">مشاركة</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">تصدير</button>
+          </div>
+          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+            <span data-feather="calendar" class="align-text-bottom"></span>
+            هذا الأسبوع
+          </button>
+        </div>
+      </div>
+
+      <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
+
+      <div id="dashboard"></div>
+    </main>
+  </div>
+</div>
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+      <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
+  </body>
+</html>

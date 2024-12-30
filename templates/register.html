@@ -1,0 +1,32 @@
+    <div class="w-100" style="max-width: 800px;">
+      <form  hx-post="/api/login"
+       method="post"
+      hx-swap="outerHTML"
+      hx-target="#message">
+        <div class="mb-3">
+          <label for="email" class="form-label">الاسم</label>
+          <input name ="email"type="text" class="form-control" id="email" placeholder="البريد الإلكتروني" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">اسم المستخدم</label>
+          <input name ="email"type="text" class="form-control" id="email" placeholder="البريد الإلكتروني" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">البريد الإلكتروني</label>
+          <input name ="email"type="text" class="form-control" id="email" placeholder="البريد الإلكتروني" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">كلمة المرور</label>
+          <input name="password" type="password" class="form-control" id="password" placeholder="كلمةالمرور" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">إعادة تأكيد كلمة المرور</label>
+          <input name="password" type="password" class="form-control" id="password" placeholder="كلمةالمرور" required>
+        </div>
+        <button type="submit" class="btn btn-success">إضافة</button>
+      </form>
+    </div>
+
+    <div id="message"></div>

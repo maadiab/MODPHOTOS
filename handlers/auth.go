@@ -1,10 +1,11 @@
 package handlers
 
-import "net/http"
+import (
+	"log"
+	"net/http"
+)
 
-
-func (w http.ResponseWriter,r *http.Request){
-	log.Println("Welcomecome to MOD"package handlers
-
+func Login(w http.ResponseWriter, r *http.Request) {
+	log.Println("Welcome to MOD")
 
 }
