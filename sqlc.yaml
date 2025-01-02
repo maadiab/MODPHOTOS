@@ -4,7 +4,14 @@ cloud:
     project: ""
     hostname: ""
 servers: []
-sql: []
+sql:
+  - schema: "sql/schema"
+    queries: "sql/queries"
+    engine: "postgresql"
+    gen:
+      go:
+        out: "internal/database"
+     
 overrides:
     go: null
 plugins: []
