@@ -3,11 +3,16 @@ package main
 import (
 	"log"
 	"net/http"
+	// "os"
 
+	"github.com/joho/godotenv"
 	"github.com/maadiab/modarc/handlers"
 )
 
 func main() {
+
+	godotenv.Load()
+	// dbURL := os.Getenv("DB_URL")
 
 	mux := http.NewServeMux()
 
