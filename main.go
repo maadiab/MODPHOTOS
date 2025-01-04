@@ -1,24 +1,37 @@
 package main
 
 import (
+	"database/sql"
 	"log"
 	"net/http"
-	// "os"
+
+	_ "github.com/lib/pq"
+	"os"
 
 	"github.com/joho/godotenv"
 	"github.com/maadiab/modarc/handlers"
+	"github.com/maadiab/modarc/internal/database"
 )
 
 func main() {
 
 	godotenv.Load()
-	// dbURL := os.Getenv("DB_URL")
+	dbURL := os.Getenv("DB_URL")
 
+	db, err := sql.Open("postgres", dbURL)
+	if err != nil {
+		log.Println("Error in main package: ", err)
+	}
 	mux := http.NewServeMux()
 
 	server := &http.Server{
 		Handler: mux,
 		Addr:    "localhost:8080",
+	}
+
+	defer db.Close()
+	cfg := &handlers.ApiConfig{
+		DBQueries: *database.New(db),
 	}
 
 	mux.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("./assets"))))
@@ -29,9 +42,9 @@ func main() {
 	mux.HandleFunc("/reguser", handlers.ServeRegisterForm)
 	mux.HandleFunc("/regphoto", handlers.ServeAddPhotographer)
 	mux.HandleFunc("/regmission", handlers.ServeMission)
-	mux.HandleFunc("/regsysuser", handlers.RegisterSystemUser)
+	mux.HandleFunc("/regsysuser", cfg.RegisterSystemUser)
 	mux.HandleFunc("/overview", handlers.ServeOverView)
-	mux.HandleFunc("/api/login", handlers.Login)
+	mux.HandleFunc("/api/login", cfg.Login)
 	log.Println("Server runnint on: ", server.Addr)
 	server.ListenAndServe()
 }
