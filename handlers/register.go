@@ -59,6 +59,10 @@ func (cfg *ApiConfig) RegisterSystemUser(w http.ResponseWriter, r *http.Request)
 		return
 	}
 
-	w.Write([]byte("it's ok"))
 	// return successfull message in both header and html
+	w.Write([]byte(`
+			<div class="alert alert-success" role="alert">
+تم إضافة المستخدم بنجاح
+</div>
+		`))
 }

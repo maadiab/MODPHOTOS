@@ -1,19 +1,27 @@
 
     
+
+<div class="mt-4 d-flex ">
+<button class="shadow-sm btn border border-1 shadow-sm bg-white m-3" style="height:150px; width:150px;"
+hx-get="/regUser"
+method="post"
+hx-swap="outerHTML"
+hx-target="#container">
+قائمة المستخدمين</button>
+
+<button class="shadow-sm btn border border-1 shadow-sm bg-white m-3" style="height:150px; width:150px;">تسجيل مستخدم</button>
+</div>
+
+
+
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h4>تسجيل مستخدم جديد للنظام</h4>
         <div class="btn-toolbar mb-2 mb-md-0">
-          <!-- <div class="btn-group me-2"> -->
-            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">مشاركة</button> -->
-            <!-- <button type="button" class="btn btn-sm btn-outline-secondary">تصدير</button> -->
-          <!-- </div> -->
-          <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle"> -->
-            <!-- <span data-feather="calendar" class="align-text-bottom"></span> -->
-            <!-- هذا الأسبوع -->
-          <!-- </button> -->
         </div>
       </div>
 
+
+    <div id="container"></div>
             <div class="w-100" style="max-width: 800px;">
       <form  hx-post="/regsysuser"
        method="post"
@@ -51,4 +59,3 @@
       </form>
     </div>
 
-    <div id="message"></div>
