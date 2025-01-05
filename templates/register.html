@@ -1,16 +1,6 @@
 
     
 
-<div class="mt-4 d-flex ">
-<button class="shadow-sm btn border border-1 shadow-sm bg-white m-3" style="height:150px; width:150px;"
-hx-get="/regUser"
-method="post"
-hx-swap="outerHTML"
-hx-target="#container">
-قائمة المستخدمين</button>
-
-<button class="shadow-sm btn border border-1 shadow-sm bg-white m-3" style="height:150px; width:150px;">تسجيل مستخدم</button>
-</div>
 
 
 
@@ -21,12 +11,12 @@ hx-target="#container">
       </div>
 
 
-    <div id="container"></div>
-            <div class="w-100" style="max-width: 800px;">
+     <div class="w-100" style="max-width: 800px;">
+    <div id="container">
       <form  hx-post="/regsysuser"
        method="post"
       hx-swap="outerHTML"
-      hx-target="#message">
+      hx-target="#container">
         <div class="mb-3">
           <label for="name" class="form-label">الاسم</label>
           <input name ="name" type="text" class="form-control" id="name" placeholder="البريد الإلكتروني" required>
@@ -58,4 +48,4 @@ hx-target="#container">
         <button type="submit" class="btn btn-success">إضافة</button>
       </form>
     </div>
-
+</div>

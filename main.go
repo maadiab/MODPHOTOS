@@ -40,7 +40,9 @@ func main() {
 	mux.Handle("/dashboard/", http.StripPrefix("/dashboard/", http.FileServer(http.Dir("./templates/dashboard"))))
 
 	mux.HandleFunc("/reguser", handlers.ServeRegisterForm)
-	mux.HandleFunc("/regphoto", handlers.ServeAddPhotographer)
+	mux.HandleFunc("/serveusers", handlers.ServeUsersSection)
+	mux.HandleFunc("/servephotographers", handlers.ServePhotographersSection)
+	mux.HandleFunc("/regphotographer", handlers.ServeAddPhotographer)
 	mux.HandleFunc("/regmission", handlers.ServeMission)
 	mux.HandleFunc("/regsysuser", cfg.RegisterSystemUser)
 	mux.HandleFunc("/overview", handlers.ServeOverView)

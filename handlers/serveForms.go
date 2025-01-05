@@ -16,6 +16,16 @@ func ServeOverView(w http.ResponseWriter, r *http.Request) {
 	tmp.Execute(w, nil)
 }
 
+func ServeUsersSection(w http.ResponseWriter, r *http.Request) {
+	tmp, _ := template.ParseFiles("./templates/users.html")
+	tmp.Execute(w, nil)
+}
+
+func ServePhotographersSection(w http.ResponseWriter, r *http.Request) {
+	tmp, _ := template.ParseFiles("./templates/photographers.html")
+	tmp.Execute(w, nil)
+}
+
 func ServeRegisterForm(w http.ResponseWriter, r *http.Request) {
 
 	tmp, _ := template.ParseFiles("./templates/register.html")
