@@ -9,10 +9,10 @@ import (
 )
 
 type User struct {
-	ID       int32
-	Name     string
-	Username string
-	Email    string
-	Mobile   sql.NullString
-	Password string
+	ID       int32 `json:"id"`
+	Name     string `json:"name"`
+	Username string `json:"username"`
+	Email    string `json:"email"`
+	Mobile   sql.NullString `json:"mobile"`
+	Password string `json:"password"`
 }

@@ -1,0 +1,50 @@
+
+    
+
+
+
+
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h4>تعديل بيانات مستخدم </h4>
+        <div class="btn-toolbar mb-2 mb-md-0">
+        </div>
+      </div>
+
+
+     <div class="w-100" style="max-width: 800px;">
+    <div id="container">
+      <form  hx-post="/regsysuser"
+       method="post"
+      hx-swap="outerHTML"
+      hx-target="#container">
+        <div class="mb-3">
+          <label for="name" class="form-label">الاسم</label>
+          <input name ="name" type="text" class="form-control" id="name" placeholder="البريد الإلكتروني" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="username" class="form-label">اسم المستخدم</label>
+          <input name ="username" type="text" class="form-control" id="username" placeholder="البريد الإلكتروني" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">البريد الإلكتروني</label>
+          <input name ="email" type="text" class="form-control" id="email" placeholder="البريد الإلكتروني" required>
+        </div>
+        
+        <div class="mb-3">
+          <label for="mobile" class="form-label">رقم الجوال</label>
+          <input name="mobile" type="text" class="form-control" id="mobile" placeholder="كلمةالمرور" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">كلمة المرور</label>
+          <input name="password" type="password" class="form-control" id="password" placeholder="كلمةالمرور" required>
+        </div>
+        
+        <div class="mb-3">
+          <label for="reTypePassword" class="form-label">إعادة تأكيد كلمة المرور</label>
+          <input name="reTypePassword" type="password" class="form-control" id="reTypePassword" placeholder="كلمةالمرور" required>
+        </div>
+        <button type="submit" class="btn btn-success">إضافة</button>
+      </form>
+    </div>
+</div>
