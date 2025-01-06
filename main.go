@@ -45,6 +45,7 @@ func main() {
 	mux.HandleFunc("/regphotographer", handlers.ServeAddPhotographer)
 	mux.HandleFunc("/regmission", handlers.ServeMission)
 	mux.HandleFunc("/regsysuser", cfg.RegisterSystemUser)
+	mux.HandleFunc("/users", cfg.GetSysUsers)
 	mux.HandleFunc("/overview", handlers.ServeOverView)
 	mux.HandleFunc("/api/login", cfg.Login)
 	log.Println("Server runnint on: ", server.Addr)
