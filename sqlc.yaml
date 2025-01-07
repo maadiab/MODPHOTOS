@@ -11,9 +11,13 @@ sql:
     gen:
       go:
         out: "internal/database"
-     
-overrides:
-    go: null
+# overrides:
+#   - db_type: "text"
+#     nullable: true
+#     go_type:
+#       type: "string"
+#       pointer: true
 plugins: []
 rules: []
 options: {}
+

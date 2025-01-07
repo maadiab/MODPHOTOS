@@ -21,9 +21,9 @@ func (cfg *ApiConfig) GetSysUsers(w http.ResponseWriter, r *http.Request) {
 
 	tmp.Execute(w, users)
 
-	// for _, user := range users {
-	// 	log.Println(user.Name)
-	// }
+	for _, user := range users {
+		log.Println(user.Name)
+	}
 
 	// log.Println(users)
 }

@@ -7,7 +7,6 @@ package database
 
 import (
 	"context"
-	"database/sql"
 )
 
 const createUser = `-- name: CreateUser :exec
@@ -20,7 +19,7 @@ type CreateUserParams struct {
 	Name     string
 	Username string
 	Email    string
-	Mobile   sql.NullString
+	Mobile   string
 	Password string
 }
 

@@ -2,12 +2,9 @@ package handlers
 
 import (
 	"encoding/json"
-	"io"
 	"log"
 	"net/http"
 	"text/template"
-
-	"github.com/maadiab/modarc/internal/database"
 )
 
 func ServeOverView(w http.ResponseWriter, r *http.Request) {
@@ -43,29 +40,43 @@ func ServeRegisterForm(w http.ResponseWriter, r *http.Request) {
 }
 
 func ServeUpdateUserForm(w http.ResponseWriter, r *http.Request) {
-	var updateUser database.User
+	// var updateUser database.User
 
-	body, _ := io.ReadAll(r.Body)
-
-	err := json.Unmarshal(body, &updateUser)
-	if err != nil {
-		log.Println("Error in decoding update system user form using unmarshall: ", err)
-		return
+	type userData struct {
+		ID       string `json:"id"`
+		Name     string `json:"name"`
+		Username string `json:"username"`
+		Email    string `json:"email"`
+		Mobile   string `json:"mobile"`
 	}
+
+	var user userData
+	// body, _ := io.ReadAll(r.Body)
+
 	// log.Println(string(body))
 
-	err = json.NewDecoder(r.Body).Decode(&updateUser)
+	// err := json.Unmarshal(body, &user)
+	// if err != nil {
+	// 	log.Println("Error in decoding update system user form using unmarshall: ", err)
+	// 	return
+	// }
+
+	// using json.Decoder:
+
+	err := json.NewDecoder(r.Body).Decode(&user)
 	if err != nil {
-		log.Println(r.Body)
+		// log.Println(r.Body)
 		log.Println("Error in decoding update system user form: ", err)
 		return
 	}
+	log.Println("getting data successfully...")
 	tmp, err := template.ParseFiles("./templates/edituser.html")
 	if err != nil {
 		log.Println("Error in parsing edit user template: ", err)
 		return
 	}
-	tmp.Execute(w, updateUser)
+	log.Println(user)
+	tmp.Execute(w, user)
 }
 
 func ServeAddPhotographer(w http.ResponseWriter, r *http.Request) {

@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"context"
-	"database/sql"
 	"log"
 	"net/http"
 
@@ -45,10 +44,7 @@ func (cfg *ApiConfig) RegisterSystemUser(w http.ResponseWriter, r *http.Request)
 		Name:     name,
 		Username: username,
 		Email:    email,
-		Mobile: sql.NullString{
-			String: mobile,
-			Valid:  mobile != "",
-		},
+		Mobile:   mobile,
 		Password: hashedPass,
 	}
 
@@ -61,8 +57,9 @@ func (cfg *ApiConfig) RegisterSystemUser(w http.ResponseWriter, r *http.Request)
 
 	// return successfull message in both header and html
 	w.Write([]byte(`
-			<div class="alert alert-success" role="alert">
-تم إضافة المستخدم بنجاح
-</div>
-		`))
+				<div class="alert alert-success" role="alert">
+	تم إضافة المستخدم بنجاح
+	</div>
+			`))
+
 }
