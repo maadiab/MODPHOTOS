@@ -47,12 +47,13 @@ func main() {
 	mux.HandleFunc("/servephotographers", handlers.ServePhotographersSection)
 	mux.HandleFunc("/regphotographer", handlers.ServeAddPhotographer)
 	mux.HandleFunc("/regmission", handlers.ServeMission)
+	mux.HandleFunc("/overview", handlers.ServeOverView)
 
 	// handlers
 	mux.HandleFunc("/regsysuser", cfg.RegisterSystemUser)
 	mux.HandleFunc("/users", cfg.GetSysUsers)
 	mux.HandleFunc("/updateusers", cfg.UpdateUser)
-	mux.HandleFunc("/overview", handlers.ServeOverView)
+	mux.HandleFunc("/deleteuser", cfg.DeleteUser)
 	mux.HandleFunc("/api/login", cfg.Login)
 	log.Println("Server runnint on: ", server.Addr)
 	server.ListenAndServe()
