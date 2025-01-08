@@ -5,8 +5,9 @@ import (
 	"log"
 	"net/http"
 
-	_ "github.com/lib/pq"
 	"os"
+
+	_ "github.com/lib/pq"
 
 	"github.com/joho/godotenv"
 	"github.com/maadiab/modarc/handlers"
@@ -46,8 +47,11 @@ func main() {
 	mux.HandleFunc("/servephotographers", handlers.ServePhotographersSection)
 	mux.HandleFunc("/regphotographer", handlers.ServeAddPhotographer)
 	mux.HandleFunc("/regmission", handlers.ServeMission)
+
+	// handlers
 	mux.HandleFunc("/regsysuser", cfg.RegisterSystemUser)
 	mux.HandleFunc("/users", cfg.GetSysUsers)
+	mux.HandleFunc("/updateusers", cfg.UpdateUser)
 	mux.HandleFunc("/overview", handlers.ServeOverView)
 	mux.HandleFunc("/api/login", cfg.Login)
 	log.Println("Server runnint on: ", server.Addr)

@@ -1,26 +1,51 @@
 package handlers
 
 import (
-	// "encoding/json"
+	"context"
 	"log"
 	"net/http"
-	"text/template"
+	"strconv"
+
+	"github.com/maadiab/modarc/internal/database"
 )
 
-func (cfg *ApiConfig) UpdateSysUser(w http.ResponseWriter, r *http.Request) {
+func (cfg *ApiConfig) UpdateUser(w http.ResponseWriter, r *http.Request) {
 
-	// var user UserData
-
-	// err := json.NewDecoder(r.Body).Decode(&user)
-	// if err != nil {
-	// 	log.Println("Error in decoding user for update: ", err)
-	// 	return
-	// }
-
-	tmp, err := template.ParseFiles("./templates/edituser.html")
+	err := r.ParseForm()
 	if err != nil {
-		log.Println("Error in parsing edituser form: ", err)
+		log.Println("Error in parsing update user form: ", err)
 		return
 	}
-	tmp.Execute(w, nil)
+
+	id := r.FormValue("id")
+	name := r.FormValue("name")
+	username := r.FormValue("username")
+	email := r.FormValue("email")
+	mobile := r.FormValue("mobile")
+
+	numId, err := strconv.Atoi(id)
+	if err != nil {
+		log.Println("Error in converting id to int: ", err)
+		return
+	}
+
+	uuser := database.UpdateUserParams{
+		ID:       int32(numId),
+		Name:     name,
+		Username: username,
+		Email:    email,
+		Mobile:   mobile,
+	}
+	err = cfg.DBQueries.UpdateUser(context.Background(), uuser)
+
+	if err != nil {
+		log.Println("Error in Update User in database function: ", err)
+		return
+	}
+
+	w.Write([]byte(`
+	
+				<div class="alert alert-success" role="alert">
+تم تحديث بيانات المستخدم بنجاح	</div>
+	`))
 }

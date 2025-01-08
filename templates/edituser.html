@@ -13,13 +13,13 @@
 
      <div class="w-100" style="max-width: 800px;">
     <div id="container">
-      <form  hx-post="/regsysuser"
+      <form  hx-post="/updateusers"
        method="post"
-      hx-swap="outerHTML"
+      hx-swap="innerHTML"
       hx-target="#container">
       <div class="mb-3">
         <label for="id" class="form-label">ID </label>
-        <input name ="id" type="text" class="form-control" id="id" placeholder="البريد الإلكتروني" value="{{.ID}}" required>
+        <input name ="id" type="text" class="form-control" id="id" placeholder="البريد الإلكتروني" value="{{.ID}}" readonly>
       </div>
 
         <div class="mb-3">
