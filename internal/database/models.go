@@ -4,6 +4,14 @@
 
 package database
 
+type Photographer struct {
+	ID          int32
+	Phgname     string
+	Phgusername string
+	Phgmobile   string
+	Phgpassword string
+}
+
 type User struct {
 	ID       int32
 	Name     string

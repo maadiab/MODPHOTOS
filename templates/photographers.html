@@ -1,20 +1,21 @@
 
 <div class="mt-4 d-flex ">
 
-<button class="shadow-sm btn border border-1 shadow-sm bg-white m-3" style="height:150px; width:150px;">قائمة المصورين</button>
+<!-- <button class="shadow-sm btn border border-1 shadow-sm bg-white m-3" style="height:150px; width:150px;">قائمة المصورين</button> -->
 <button class="shadow-sm btn border border-1 shadow-sm bg-white m-3" style="height:150px; width:150px;"
-hx-get="/regphotographer"
+hx-get="/photographers"
 method="get"
 hx-swap="innerHTML"
 hx-target="#container">
-إضافة مصور جديد</button>
+قائمة المصورين</button>
 
 <button class="shadow-sm btn border border-1 shadow-sm bg-white m-3" style="height:150px; width:150px;"
 hx-get="/regmission"
 method="get"
 hx-swap="innerHTML"
 hx-target="#container">
-تسجيل مهمة تصوير </button>
+إضافة مصور</button>
 </div>
+
 
 <div id="container"></div>

@@ -51,17 +51,6 @@ func ServeUpdateUserForm(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var user userData
-	// body, _ := io.ReadAll(r.Body)
-
-	// log.Println(string(body))
-
-	// err := json.Unmarshal(body, &user)
-	// if err != nil {
-	// 	log.Println("Error in decoding update system user form using unmarshall: ", err)
-	// 	return
-	// }
-
-	// using json.Decoder:
 
 	err := json.NewDecoder(r.Body).Decode(&user)
 	if err != nil {

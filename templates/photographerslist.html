@@ -1,0 +1,58 @@
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h4>قائمة المستخدمين</h4>
+    <div class="btn-toolbar mb-2 mb-md-0">
+    </div>
+  </div>
+
+<div id="container">
+<ol class="list-group list-group-numbered">
+{{range .}}
+<li class="list-group-item d-flex justify-content-between align-items-start">
+<div class="ms-2 me-auto">
+  {{printf "%T" .ID}}
+  <div class="fw-bold">{{.Name}}
+
+    <span class="badge bg-success rounded-pill m-2">{{.Mobile}}</span>
+  </div>
+
+ {{.Email}}
+
+</div>
+
+
+<button class="btn btn-primary btn-sm m-2"
+hx-post="/updatesysuser"
+hx-encoding="json"
+hx-headers='{"Content-Type": "application/json"}'
+hx-vals='{
+    "ID": {{.ID}},
+    "Name": "{{.Name}}",
+    "Email": "{{.Email}}",
+    "Username": "{{.Username}}",
+    "Mobile": "{{.Mobile}}"
+}'
+hx-target="#container"
+hx-ext="json-enc"
+>
+تعديل
+</button>
+
+<button class="btn btn-danger btn-sm m-2"
+hx-post="/deleteuser"
+hx-encoding="json"
+hx-headers='{"Content-Type": "application/json"}'
+hx-vals='{
+"ID": {{.ID}}
+}'
+hx-target="#container"
+hx-ext="json-enc"
+>
+حذف
+</button>
+
+
+</li>
+{{end}}
+</ol>
+</div>
