@@ -20,11 +20,3 @@ func HashingPasswords(password string) (string, error) {
 
 	return string(bytes), err
 }
-
-func CompareHash(password, hash string) bool {
-	err := bcrypt.CompareHashAndPassword([]byte(password), []byte(password))
-	if err != nil {
-		log.Println(err)
-	}
-	return err == nil
-}

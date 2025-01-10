@@ -10,16 +10,11 @@ import (
 )
 
 const getUserAuth = `-- name: GetUserAuth :one
-SELECT id, name, username, email, mobile, password FROM users WHERE username = $1 AND password = $2
+SELECT id, name, username, email, mobile, password FROM users WHERE username = $1
 `
 
-type GetUserAuthParams struct {
-	Username string
-	Password string
-}
-
-func (q *Queries) GetUserAuth(ctx context.Context, arg GetUserAuthParams) (User, error) {
-	row := q.db.QueryRowContext(ctx, getUserAuth, arg.Username, arg.Password)
+func (q *Queries) GetUserAuth(ctx context.Context, username string) (User, error) {
+	row := q.db.QueryRowContext(ctx, getUserAuth, username)
 	var i User
 	err := row.Scan(
 		&i.ID,

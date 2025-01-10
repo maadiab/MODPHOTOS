@@ -1,2 +1,2 @@
 -- name: GetUserAuth :one
-SELECT * FROM users WHERE username = $1 AND password = $2;
+SELECT * FROM users WHERE username = $1;
