@@ -54,7 +54,9 @@ func main() {
 	mux.HandleFunc("/users", cfg.GetSysUsers)
 	mux.HandleFunc("/updateusers", cfg.UpdateUser)
 	mux.HandleFunc("/deleteuser", cfg.DeleteUser)
+	mux.HandleFunc("/regphotographer", cfg.AddPhotographer)
 	mux.HandleFunc("/photographers", cfg.GetPhotographers)
+
 	mux.HandleFunc("/api/login", cfg.Login)
 	log.Println("Server runnint on: ", server.Addr)
 	server.ListenAndServe()

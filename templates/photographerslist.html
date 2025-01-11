@@ -10,13 +10,12 @@
 {{range .}}
 <li class="list-group-item d-flex justify-content-between align-items-start">
 <div class="ms-2 me-auto">
-  {{printf "%T" .ID}}
-  <div class="fw-bold">{{.Name}}
+  <!-- {{printf "%T" .ID}} -->
+  <div class="fw-bold">{{.Phgname}}
 
-    <span class="badge bg-success rounded-pill m-2">{{.Mobile}}</span>
+    <span class="badge bg-success rounded-pill m-2">{{.Phgmobile}}</span>
   </div>
 
- {{.Email}}
 
 </div>
 
@@ -27,10 +26,9 @@ hx-encoding="json"
 hx-headers='{"Content-Type": "application/json"}'
 hx-vals='{
     "ID": {{.ID}},
-    "Name": "{{.Name}}",
-    "Email": "{{.Email}}",
-    "Username": "{{.Username}}",
-    "Mobile": "{{.Mobile}}"
+    "Name": "{{.Phgname}}",
+    "Username": "{{.Phgusername}}",
+    "Mobile": "{{.Phgmobile}}"
 }'
 hx-target="#container"
 hx-ext="json-enc"
