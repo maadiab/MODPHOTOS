@@ -74,6 +74,12 @@ func ServeAddPhotographer(w http.ResponseWriter, r *http.Request) {
 	tmp.Execute(w, nil)
 }
 
+// Serve add photographer form
+func ServeAddphotographer(w http.ResponseWriter, r *http.Request) {
+	tmp, _ := template.ParseFiles("./template/addphotographer.html")
+	tmp.Execute(w, nil)
+}
+
 func ServeMission(w http.ResponseWriter, r *http.Request) {
 
 	tmp, _ := template.ParseFiles("./templates/addmission.html")

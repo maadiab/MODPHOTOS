@@ -45,7 +45,7 @@ func main() {
 
 	mux.HandleFunc("/updatesysuser", handlers.ServeUpdateUserForm)
 	mux.HandleFunc("/servephotographers", handlers.ServePhotographersSection)
-	mux.HandleFunc("/regphotographer", handlers.ServeAddPhotographer)
+	mux.HandleFunc("/regphg", handlers.ServeAddPhotographer)
 	mux.HandleFunc("/regmission", handlers.ServeMission)
 	mux.HandleFunc("/overview", handlers.ServeOverView)
 
