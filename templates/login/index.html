@@ -23,9 +23,11 @@
       <img class="img-fluid w-80 rounded d-none d-md-block" src="./assets/logo.png" alt="main">
 <!-- </div> -->
       <h2 class="text-center mb-4 text-secondary">فرز المصورين</h2>
+
+    <div id="message">
       <form  hx-post="/api/login"
        method="post"
-      hx-swap="outerHTML"
+      hx-swap="innerHTML"
       hx-target="#message">
         <div class="mb-3">
           <label for="email" class="form-label">اسم المستخدم</label>
@@ -37,9 +39,9 @@
         </div>
         <button type="submit" class="btn btn-success">دخول</button>
       </form>
+      </div>
     </div>
 
-    <div id="message"></div>
   </div>
 
 

@@ -46,7 +46,8 @@ func main() {
 	mux.HandleFunc("/updatesysuser", handlers.ServeUpdateUserForm)
 	mux.HandleFunc("/servephotographers", handlers.ServePhotographersSection)
 	mux.HandleFunc("/regphg", handlers.ServeAddPhotographer)
-	mux.HandleFunc("/regmission", handlers.ServeMission)
+	mux.HandleFunc("/missions", handlers.ServeMissionsSection)
+	mux.HandleFunc("/regmission", handlers.ServeAddMission)
 	mux.HandleFunc("/overview", handlers.ServeOverView)
 
 	// handlers
@@ -56,6 +57,7 @@ func main() {
 	mux.HandleFunc("/deleteuser", cfg.DeleteUser)
 	mux.HandleFunc("/regphotographer", cfg.AddPhotographer)
 	mux.HandleFunc("/photographers", cfg.GetPhotographers)
+	mux.HandleFunc("/getmissions", cfg.GetMissons)
 
 	mux.HandleFunc("/api/login", cfg.Login)
 	log.Println("Server runnint on: ", server.Addr)

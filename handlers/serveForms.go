@@ -7,6 +7,7 @@ import (
 	"text/template"
 )
 
+// ServeOverView
 func ServeOverView(w http.ResponseWriter, r *http.Request) {
 
 	tmp, err := template.ParseFiles("./templates/overview.html")
@@ -17,16 +18,18 @@ func ServeOverView(w http.ResponseWriter, r *http.Request) {
 	tmp.Execute(w, nil)
 }
 
+// ServeUsersSection
 func ServeUsersSection(w http.ResponseWriter, r *http.Request) {
 	tmp, _ := template.ParseFiles("./templates/users.html")
 	tmp.Execute(w, nil)
 }
 
-// func ServeUsersList(w http.ResponseWriter, r *http.Request) {
-// 	tmp, _ := template.ParseFiles("./templates/userslist.html")
-// 	tmp.Execute(w, nil)
-// }
-
+//	func ServeUsersList(w http.ResponseWriter, r *http.Request) {
+//		tmp, _ := template.ParseFiles("./templates/userslist.html")
+//		tmp.Execute(w, nil)
+//	}
+//
+// ServePhotographersSection
 func ServePhotographersSection(w http.ResponseWriter, r *http.Request) {
 	tmp, _ := template.ParseFiles("./templates/photographers.html")
 	tmp.Execute(w, nil)
@@ -39,6 +42,7 @@ func ServeRegisterForm(w http.ResponseWriter, r *http.Request) {
 	tmp.Execute(w, nil)
 }
 
+// ServeUpdateUserForm
 func ServeUpdateUserForm(w http.ResponseWriter, r *http.Request) {
 	// var updateUser database.User
 
@@ -68,6 +72,7 @@ func ServeUpdateUserForm(w http.ResponseWriter, r *http.Request) {
 	tmp.Execute(w, user)
 }
 
+// ServeAddPhotographer
 func ServeAddPhotographer(w http.ResponseWriter, r *http.Request) {
 
 	tmp, _ := template.ParseFiles("./templates/addphotographer.html")
@@ -80,8 +85,15 @@ func ServeAddphotographer(w http.ResponseWriter, r *http.Request) {
 	tmp.Execute(w, nil)
 }
 
-func ServeMission(w http.ResponseWriter, r *http.Request) {
+// ServeMission
+func ServeAddMission(w http.ResponseWriter, r *http.Request) {
 
 	tmp, _ := template.ParseFiles("./templates/addmission.html")
+	tmp.Execute(w, nil)
+}
+
+func ServeMissionsSection(w http.ResponseWriter, r *http.Request) {
+
+	tmp, _ := template.ParseFiles("./templates/missions.html")
 	tmp.Execute(w, nil)
 }

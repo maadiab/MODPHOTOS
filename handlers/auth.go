@@ -30,6 +30,29 @@ func (cfg *ApiConfig) Login(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println("Error in getting reqUser: ", err)
 
+		w.Write([]byte(`
+	
+					<div class="alert alert-danger" role="alert">
+تم حذف المستخدم بنجاح
+
+</div>
+
+      <form  hx-post="/api/login"
+       method="post"
+      hx-swap="innerHTML"
+      hx-target="#message">
+        <div class="mb-3">
+          <label for="email" class="form-label">اسم المستخدم</label>
+          <input name ="username"type="text" class="form-control" id="username" placeholder="اسم المستخدم" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">كلمة المرور</label>
+          <input name="password" type="password" class="form-control" id="password" placeholder="كلمةالمرور" required>
+        </div>
+        <button type="submit" class="btn btn-success">دخول</button>
+      </form>
+
+	`))
 		return
 	}
 	// compare it with user data entered
