@@ -27,7 +27,7 @@ func main() {
 
 	server := &http.Server{
 		Handler: mux,
-		Addr:    "localhost:8080",
+		Addr:    "0.0.0.0:80",
 	}
 
 	defer db.Close()
